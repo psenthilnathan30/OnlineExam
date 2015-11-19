@@ -8,9 +8,5 @@
 		<put-attribute name="body" value="" />
 	</definition>
 
-	 
-	<definition name="index" extends="base.definition">
-		<put-attribute name="body" value="/pages/index.jsp" />
-	</definition>
-
+	
 </tiles-definitions>

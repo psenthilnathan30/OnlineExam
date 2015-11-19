@@ -244,7 +244,7 @@
 								</span>
 							</div> <!-- /input-group -->
 						</li>
-						<li><a href="index.htm"><i class="fa fa-dashboard fa-fw"></i>
+						<li><a href="index.htm" class="active"><i class="fa fa-dashboard fa-fw"></i>
 								Dashboard</a></li>
 						<li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>
 								Charts<span class="fa arrow"></span></a>
@@ -283,7 +283,7 @@
 								class="fa fa-files-o fa-fw"></i> Exams<span
 								class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
-								<li><a class="active" href="onlineExam.htm">Online Page</a></li>
+								<li><a  href="onlineExam.htm">Online Page</a></li>
 								<li><a href="upload.htm">Upload Questions</a></li>
 								<li><a href="login.html">Login Page</a></li>
 							</ul> <!-- /.nav-second-level --></li>
@@ -313,6 +313,8 @@
 
 	<!-- Custom Theme JavaScript -->
 	<script src="${pageContext.request.contextPath}/dist/js/sb-admin-2.js"></script>
+	
+	<script src="${pageContext.request.contextPath}/js/validateExam.js"></script>
 
 </body>
 

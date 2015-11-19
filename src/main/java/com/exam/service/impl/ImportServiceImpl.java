@@ -76,10 +76,17 @@ public class ImportServiceImpl implements ExcelService {
 		excelFileDAO.insertExcelData(questions);
 	}
 
-	@Override
 	public List<ExcelFileBean> getQuestions(String examType) {
 		
 		return excelFileDAO.getQuestionsDetails(examType);
 	}
+	
+	
+
+
+public List<ExcelFileBean> subDetails(String ans) {
+	// TODO Auto-generated method stub
+	return excelFileDAO.submitedDetails(ans); 
+}
 
 }

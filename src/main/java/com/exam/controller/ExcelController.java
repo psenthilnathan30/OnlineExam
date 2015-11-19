@@ -39,5 +39,16 @@ public class ExcelController {
         modal.addObject("questionsDetails",importService.getQuestions("1"));
         return modal;
     }
+	
+	@RequestMapping(method = RequestMethod.POST,value="validate.do")
+    public ModelAndView SubmitQuestionDetails(String answer,ModelAndView modal) 
+	{
+		System.out.println("check===");
+	
+		modal.setViewName("submitted");
+        modal.addObject("submittedquestion",importService.subDetails("1"));
+        return modal;
+	
+	}
 
 }

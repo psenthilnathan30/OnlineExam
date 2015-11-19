@@ -201,8 +201,15 @@
 
 
 	</dependencies>
+	
 	<build>
-		<finalName>OnlineApp</finalName>
 
-	</build>
+	<finalName>${project.artifactId}</finalName>
+
+	
+</build>
+
+
+
+
 </project>

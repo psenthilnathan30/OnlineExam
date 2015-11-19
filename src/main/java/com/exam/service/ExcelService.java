@@ -9,4 +9,5 @@ public interface ExcelService {
 
     public void importFile(FileBean fileBean);
     public List<ExcelFileBean> getQuestions(String examType);
+    public List<ExcelFileBean> subDetails(String examType);
 }

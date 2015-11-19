@@ -34,7 +34,6 @@ public class ExcelFileDAOImpl implements ExcelFileDAO {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		int[] noOfRow = jdbcTemplate.batchUpdate(query,
 				new BatchPreparedStatementSetter() {
-					@Override
 					public void setValues(PreparedStatement ps, int i)
 							throws SQLException {
 						ExcelFileBean excelFileBean = excelFileBeans.get(i);
@@ -48,7 +47,6 @@ public class ExcelFileDAOImpl implements ExcelFileDAO {
 						ps.setInt(8, 1);
 					}
 
-					@Override
 					public int getBatchSize() {
 						return excelFileBeans.size();
 					}
@@ -58,23 +56,20 @@ public class ExcelFileDAOImpl implements ExcelFileDAO {
 
 	}
 
-	@Override
 	public List<ExcelFileBean> getQuestionsDetails(String examType) {
 		String query = PropertiesCache.getInstance().getProperty(
 				"GET_QUESTIONS_DETAILS");
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		List<ExcelFileBean> excelList=jdbcTemplate.query(query, new Object[]{examType},
 				new RowMapper<ExcelFileBean>(){
-					@Override
 					public ExcelFileBean mapRow(ResultSet rs, int rowNum)
 							throws SQLException {
 						ExcelFileBean excelFile=new ExcelFileBean();
-						excelFile.setQuestionId(rs.getInt("question_id"));
-						excelFile.setQuestion(rs.getString("question"));
-						excelFile.setOption_1(rs.getString("option_1"));
-						excelFile.setOption_2(rs.getString("option_2"));
-						excelFile.setOption_3(rs.getString("option_3"));
-						excelFile.setOption_4(rs.getString("option_4"));
+						excelFile.setQuestion(String.valueOf(rs.getString("question")));
+						excelFile.setOption_1(String.valueOf(rs.getString("option_1")));
+						excelFile.setOption_2(String.valueOf(rs.getString("option_2")));
+						excelFile.setOption_3(String.valueOf(rs.getString("option_3")));
+						excelFile.setOption_4(String.valueOf(rs.getString("option_4")));
 						excelFile.setRowNum(rowNum);
 						return excelFile;
 					}
@@ -82,5 +77,30 @@ public class ExcelFileDAOImpl implements ExcelFileDAO {
 		});
 		return excelList;
 	}
+	
+	
+	
+	
+
+	public List<ExcelFileBean> submitedDetails(String ans) {
+	
+		String query = PropertiesCache.getInstance().getProperty(
+				"SUB_QUESTIONS_DETAILS");
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		List<ExcelFileBean> ansList=jdbcTemplate.query(query, new Object[]{ans},
+				new RowMapper<ExcelFileBean>(){
+					public ExcelFileBean mapRow(ResultSet rs, int rowNum)
+							throws SQLException {
+						ExcelFileBean excelFile=new ExcelFileBean();
+						excelFile.setAnswer(String.valueOf(rs.getString("ans")));
+						excelFile.setRowNum(rowNum);
+						return excelFile;
+					}
+			
+		});
+		return ansList;
+	
+	}
+	
 
 }
