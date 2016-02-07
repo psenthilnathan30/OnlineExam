@@ -2,12 +2,13 @@ package com.exam.service;
 
 import java.util.List;
 
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 import com.exam.dto.ExcelFileBean;
-import com.exam.dto.FileBean;
 
 public interface ExcelService {
 
-    public void importFile(FileBean fileBean);
+    public List<ExcelFileBean> importFile(CommonsMultipartFile multipartFile);
     public List<ExcelFileBean> getQuestions(String examType);
     public List<ExcelFileBean> subDetails(String examType);
 }

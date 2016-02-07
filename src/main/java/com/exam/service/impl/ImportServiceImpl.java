@@ -10,10 +10,10 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.exam.dao.ExcelFileDAO;
 import com.exam.dto.ExcelFileBean;
-import com.exam.dto.FileBean;
 import com.exam.service.ExcelService;
 
 public class ImportServiceImpl implements ExcelService {
@@ -30,15 +30,14 @@ public class ImportServiceImpl implements ExcelService {
 	public ImportServiceImpl() {
 	}
 
-	public void importFile(FileBean fileBean) {
-		ByteArrayInputStream bis = new ByteArrayInputStream(fileBean
-				.getFileData().getBytes());
-		Workbook workbook;
+	public List<ExcelFileBean> importFile(CommonsMultipartFile multipartFile) {
+		ByteArrayInputStream bis = new ByteArrayInputStream(multipartFile.getBytes());
+		Workbook workbook=null;
 		List<ExcelFileBean> questions = new ArrayList<ExcelFileBean>();
 		try {
-			if (fileBean.getFileData().getOriginalFilename().endsWith("xls")) {
+			if (multipartFile.getOriginalFilename().endsWith("xls")) {
 				workbook = new HSSFWorkbook(bis);
-			} else if (fileBean.getFileData().getOriginalFilename()
+			} else if (multipartFile.getOriginalFilename()
 					.endsWith("xlsx")) {
 				workbook = new XSSFWorkbook(bis);
 			} else {
@@ -73,7 +72,8 @@ public class ImportServiceImpl implements ExcelService {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		excelFileDAO.insertExcelData(questions);
+		//excelFileDAO.insertExcelData(questions);
+		return questions;
 	}
 
 	public List<ExcelFileBean> getQuestions(String examType) {

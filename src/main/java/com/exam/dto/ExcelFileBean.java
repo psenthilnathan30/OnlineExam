@@ -12,6 +12,7 @@ public class ExcelFileBean {
 	private String option_3;
 	private String option_4;
 	private String answer;
+	private String category;
 	private String descriptions;
 
 	public String getOption_2() {
@@ -92,6 +93,14 @@ public class ExcelFileBean {
 
 	public void setQuestionId(int questionId) {
 		this.questionId = questionId;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 }

@@ -1,13 +1,20 @@
 package com.exam.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.exam.dto.FileBean;
+import com.exam.dto.ExcelFileBean;
 import com.exam.service.ExcelService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 public class ExcelController {
@@ -26,11 +33,20 @@ public class ExcelController {
 
 
 	@RequestMapping(method = RequestMethod.POST,value="uploadFile.do")
-    public ModelAndView upload(FileBean uploadItem, ModelAndView modal) {
-        importService.importFile(uploadItem);
-        modal.setViewName("uploadQuestions");
-        modal.addObject("message","File has been uploaded sucessfully");
-        return modal;
+    public @ResponseBody String upload(@RequestParam("file") CommonsMultipartFile multipartFile) {
+		List<ExcelFileBean> questions= importService.importFile(multipartFile);
+      //  modal.setViewName("uploadQuestions");
+        //modal.addObject("message","File has been uploaded sucessfully");
+		 //create ObjectMapper instance
+        ObjectMapper objectMapper = new ObjectMapper();
+        String jsonValue=null;
+        try {
+			jsonValue=objectMapper.writeValueAsString(questions);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return jsonValue;
     }
 	
 	@RequestMapping(method = RequestMethod.GET,value="onlineExam.htm")

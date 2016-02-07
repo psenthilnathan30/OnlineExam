@@ -12,13 +12,15 @@
 							<div class="panel-heading">Java Questions</div>
 							<div class="panel-body">
 								<c:if test="${not empty questionsDetails}">
+								
+								<form name="onlinetest">
+								
 									<c:forEach var="excelBean" items="${questionsDetails}">
 										<div class="form-group">
 											<pre>
 												<label class="questionLabel">${excelBean.getQuestion()}</label>
-																															
                                             </pre>
-                                            
+                                                                                                                                   
 											<div class="radio">
 												<label> <input type="radio"
 													name="options${excelBean.getRowNum()}"
@@ -48,7 +50,11 @@
 												</label>
 											</div>
 										</div>
+									
 									</c:forEach>
+									
+									</form>
+									
 								</c:if>
 							</div>
 							<div class="panel-footer tac">

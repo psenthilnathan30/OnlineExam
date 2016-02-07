@@ -26,4 +26,10 @@ public class CommonHandler {
 		return "uploadQuestions";
 	}
 	
+	@RequestMapping(method=RequestMethod.GET,value="/issuePage.htm")
+	public String myIssuePage(){
+		
+		return "myissues";
+	}
+	
 }

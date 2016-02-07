@@ -18,9 +18,18 @@
 	<beans:bean id="excelFileDAO" class="com.exam.dao.impl.ExcelFileDAOImpl">
 		<beans:property name="dataSource" ref="dataSource" />
 	</beans:bean>
+	<beans:bean id="issueDetailDAO" class="com.exam.dao.impl.IssueDetailDAOImpl">
+		<beans:property name="dataSource" ref="dataSource" />
+	</beans:bean>
+	
 	<beans:bean id="importService" class="com.exam.service.impl.ImportServiceImpl">
 		<beans:property name="excelFileDAO" ref="excelFileDAO" />
 	</beans:bean>
+	
+	<beans:bean id="issueDetailService" class="com.exam.service.impl.IssueDetailServiceImpl">
+		<beans:property name="issueDetailDAO" ref="issueDetailDAO" />
+	</beans:bean>
+	
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->

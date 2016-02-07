@@ -13,18 +13,35 @@
 <title>Online Exam</title>
 
 <!-- Bootstrap Core CSS -->
-<link href="${pageContext.request.contextPath}/bower_components/bootstrap/dist/css/bootstrap.min.css"
+<link
+	href="${pageContext.request.contextPath}/bower_components/bootstrap/dist/css/bootstrap.min.css"
 	rel="stylesheet">
 
 <!-- MetisMenu CSS -->
-<link href="${pageContext.request.contextPath}/bower_components/metisMenu/dist/metisMenu.min.css"
+<link
+	href="${pageContext.request.contextPath}/bower_components/metisMenu/dist/metisMenu.min.css"
 	rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="${pageContext.request.contextPath}/dist/css/sb-admin-2.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/dist/css/sb-admin-2.css"
+	rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/dist/css/buttons.dataTables.min.css"
+	rel="stylesheet">
+
+<link
+	href="${pageContext.request.contextPath}/dist/css/editor.dataTables.min.css"
+	rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/dist/css/jquery.dataTables.min.css"
+	rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/dist/css/select.dataTables.min.css"
+	rel="stylesheet">
 
 <!-- Custom Fonts -->
-<link href="${pageContext.request.contextPath}/bower_components/font-awesome/css/font-awesome.min.css"
+<link
+	href="${pageContext.request.contextPath}/bower_components/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -236,7 +253,8 @@
 					<ul class="nav" id="side-menu">
 						<li class="sidebar-search">
 							<div class="input-group custom-search-form">
-								<input type="text" class="form-control" placeholder="Search${pageContext.request.contextPath}.">
+								<input type="text" class="form-control"
+									placeholder="Search${pageContext.request.contextPath}.">
 								<span class="input-group-btn">
 									<button class="btn btn-default" type="button">
 										<i class="fa fa-search"></i>
@@ -244,8 +262,8 @@
 								</span>
 							</div> <!-- /input-group -->
 						</li>
-						<li><a href="index.htm" class="active"><i class="fa fa-dashboard fa-fw"></i>
-								Dashboard</a></li>
+						<li><a href="index.htm" class="active"><i
+								class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
 						<li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>
 								Charts<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
@@ -280,15 +298,15 @@
 									</ul> <!-- /.nav-third-level --></li>
 							</ul> <!-- /.nav-second-level --></li>
 						<li class="active"><a href="#"><i
-								class="fa fa-files-o fa-fw"></i> Exams<span
-								class="fa arrow"></span></a>
+								class="fa fa-files-o fa-fw"></i> Exams<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
-								<li><a  href="onlineExam.htm">Online Page</a></li>
+								<li><a href="onlineExam.htm">Online Page</a></li>
 								<li><a href="upload.htm">Upload Questions</a></li>
+								<li><a href="issuePage.htm">My Issue</a></li>
 								<li><a href="login.html">Login Page</a></li>
 							</ul> <!-- /.nav-second-level --></li>
 					</ul>
-					
+
 				</div>
 				<!-- /.sidebar-collapse -->
 			</div>
@@ -303,19 +321,30 @@
 	<!-- /#wrapper -->
 
 	<!-- jQuery -->
-	<script src="${pageContext.request.contextPath}/bower_components/jquery/dist/jquery.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/bower_components/jquery/dist/jquery.min.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
-	<script src="${pageContext.request.contextPath}/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
 	<!-- Metis Menu Plugin JavaScript -->
-	<script src="${pageContext.request.contextPath}/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
 	<!-- Custom Theme JavaScript -->
 	<script src="${pageContext.request.contextPath}/dist/js/sb-admin-2.js"></script>
-	
-	<script src="${pageContext.request.contextPath}/js/validateExam.js"></script>
 
+	<script src="${pageContext.request.contextPath}/js/validateExam.js"></script>
+	<script src="${pageContext.request.contextPath}/js/myIssues.js"></script>
+	<%-- <script
+		src="${pageContext.request.contextPath}/bower_components/datatables-plugins/integration/jqueryui/dataTables.jqueryui.min.js"></script> --%>
+	<script
+		src="${pageContext.request.contextPath}/js/vendor/jquery.dataTables.min.js"></script>
+
+	<%-- <script
+		src="${pageContext.request.contextPath}/bower_components/jquery/dist/jquery.js"></script>
+	 --%> 
 </body>
 
 </html>
